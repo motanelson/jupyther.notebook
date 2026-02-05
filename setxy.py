@@ -2,7 +2,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 import random
-STEP=50
+STEP=25
 root = tk.Tk()
 canvas = tk.Canvas(root, width=600, height=400, bg="black")
 canvas.pack()
@@ -65,7 +65,7 @@ def getxy(s:str):
             elif d==0:
                 xxyy=xxyy+[255]
             else:
-                h=h+[canvas.create_image(xxx*50, yyy*50, image=pic2)]
+                h=h+[canvas.create_image(xxx*25, yyy*25, image=pic2)]
                 xxyy=xxyy+[counter]
                 counter=counter+1
             xxx=xxx+1
@@ -101,11 +101,11 @@ def move(event):
         canvas.move(rect, STEP, 0)
         xxx=xxx+STEP
     aaa=255
-    if yyy//50>-1 and yyy//50<8 and xxx//50<12 and xxx>-1:
-        aaa=xy[yyy//50][xxx//50]
+    if yyy//25>-1 and yyy//25<15 and xxx//25<24 and xxx>-1:
+        aaa=xy[yyy//25][xxx//25]
     if aaa != 255:
             canvas.move(h[aaa], 0-xxx-300,0)
-            xy=setxy(xxx//50,yyy//50,xy)
+            xy=setxy(xxx//25,yyy//25,xy)
             score=score+10
             print("score : "+str(score))
 # Capturar teclas
